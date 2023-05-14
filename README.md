@@ -1,5 +1,4 @@
 # Lab-4
-# beksus
 # MyHashTable
 MyHashTable is a custom implementation of a hash table data structure in Java. It allows for efficient key-value pair lookups and is useful for storing large amounts of data that need to be quickly searchable.
 
