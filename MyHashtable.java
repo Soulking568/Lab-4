@@ -25,6 +25,7 @@ public class MyHashtable<K, V> {
      *
      * @param M the initial capacity of the hash table
      */
+
     public MyHashtable(int M) {
         this.capacity = M;
         this.chain = new HashNode[M];
@@ -34,6 +35,7 @@ public class MyHashtable<K, V> {
      * HashNode is an inner class used to store key-value pairs
      * and a reference to the next node in the chain.
      */
+
     private class HashNode<K, V> {
         private K key;
         private V value;
@@ -63,7 +65,6 @@ public class MyHashtable<K, V> {
         MyTestingClass hasher = new MyTestingClass(key, null);
         return Math.abs(hasher.hashCode() % capacity);
     }
-
     /**
      * Returns the number of elements in the hash table.
      *
@@ -95,7 +96,6 @@ public class MyHashtable<K, V> {
         chain[index] = newNode;
         size++;
     }
-
     /**
      * Retrieves the value associated with the given key.
      * Returns null if the key is not found in the table.
@@ -103,6 +103,7 @@ public class MyHashtable<K, V> {
      * @param key the key to retrieve
      * @return the value associated with the key, or null if the key is not found
      */
+
     public V get(K key) {
         int index = hash(key);
         HashNode node = chain[index];
@@ -187,6 +188,7 @@ public class MyHashtable<K, V> {
     /**
      * Prints the number of elements in each bucket of the hash table.
      */
+
     public void counter() {
         int count = 0;
         for (int i = 0; i < capacity; i++) {
@@ -200,4 +202,22 @@ public class MyHashtable<K, V> {
         }
 
     }
-}
+
+    /**
+     * defence for method
+     */
+        public V remove(K key, V oldValue, V newValue) {
+            int index = hash(key);
+            HashNode<K, V> node = chain[index];
+            while (node != null) {
+                if (node.key.equals(key) && node.value.equals(oldValue)) {
+                    node.value = newValue;
+                    return newValue;
+                }
+                node = node.next;
+            }
+            return null;
+        }
+
+    }
+

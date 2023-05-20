@@ -55,18 +55,20 @@ public class MyTestingClass<K, V> {
      * Tests all methods in the MyHashtable
      **/
     public void tester() {
-        MyHashtable pipi = new MyHashtable();
-        pipi.put(45, "fdngdgn");
-        pipi.put(5, "sdfgnf");
-        pipi.put(4, "fngdfgn");
-        pipi.put(42, "hfgh");
-        pipi.put(23, "dsfgs");
-        pipi.put(42, "dfgds");
-        pipi.put(124, "dsfg");
-        System.out.println(pipi.getKey("hfgh"));
-        System.out.println(pipi.get(4));
-        System.out.println(pipi.contains("dsfg"));
-        System.out.println(pipi.remove(5));
-        System.out.println(pipi.get(5));
+        MyHashtable hash = new MyHashtable();
+        hash.put(45, "fdngdgn");
+        hash.put(5, "sdfgnf");
+        hash.put(4, "fngdfgn");
+        hash.put(42, "hfgh");
+        hash.put(23, "dsfgs");
+        hash.put(42, "dfgds");
+        hash.put(124, "dsfg");
+        System.out.println(hash.getKey("hfgh"));
+        System.out.println(hash.get(4));
+        System.out.println(hash.contains("dsfg"));
+        System.out.println(hash.remove(5));
+        System.out.println(hash.get(5));
+        //TODO defence
+        System.out.println(hash.remove(4,"fngdfgn","qqqqqq"));
     }
 }
